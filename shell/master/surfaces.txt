@@ -1,0 +1,143 @@
+version,1
+
+
+surface0
+{
+animation1.interval,never
+animation1.pattern0,overlayfast,1100,0,0,0
+}
+
+//idle bounce
+surface1
+{
+element0,replace,surface0.png,0,0
+
+animation0.interval,always
+animation0.pattern0,replace,1000,500,0,0
+animation0.pattern1,replace,0,500,0,0
+}
+
+//idle lean
+surface2
+{
+element0,replace,surface0.png,0,0
+
+animation0.interval,always
+animation0.pattern0,replace,1001,500,0,0
+animation0.pattern1,replace,0,500,0,0
+animation0.pattern2,replace,1002,500,0,0
+animation0.pattern3,replace,0,500,0,0
+}
+
+//idle bounce closed eyes
+surface3
+{
+element0,replace,surface1003.png,0,0
+
+animation0.interval,always
+animation0.pattern0,replace,1004,500,0,0
+animation0.pattern1,replace,1003,500,0,0
+}
+
+//idle lean closed eyes
+surface4
+{
+element0,replace,surface1003.png,0,0
+
+animation0.interval,always
+animation0.pattern0,replace,1005,500,0,0
+animation0.pattern1,replace,1003,500,0,0
+animation0.pattern2,replace,1006,500,0,0
+animation0.pattern3,replace,1003,500,0,0
+}
+
+//boop
+surface5
+{
+element0,replace,surface0.png,0,0
+
+animation0.interval,runonce
+animation0.pattern0,replace,1007,500,0,0
+animation0.pattern1,replace,1008,700,0,0
+animation0.pattern2,replace,1009,500,0,0
+animation0.pattern3,replace,0,550,0,0
+}
+
+//gobble
+surface6
+{
+	element0,replace,surface0.png,0,0
+	
+animation0.interval,runonce
+animation0.pattern0,replace,1010,500,0,0
+animation0.pattern1,replace,1011,200,0,0
+animation0.pattern2,replace,1012,300,0,0
+animation0.pattern3,replace,1013,200,0,0
+animation0.pattern4,replace,1014,300,0,0
+animation0.pattern5,replace,1015,250,0,0
+animation0.pattern6,replace,1014,250,0,0
+animation0.pattern7,replace,1015,250,0,0
+animation0.pattern8,replace,1014,250,0,0
+animation0.pattern9,replace,-1,250,0,0
+
+}
+
+
+
+
+
+
+surface10
+{
+
+element0,overlay,surface10.png,0,0
+
+}
+
+//pillow
+surface11
+{
+	element0,overlay,surface1200.png,0,0
+}
+
+//plant
+surface12
+{
+	element0,overlay,surface1201.png,0,0
+}
+
+//blanket
+surface13
+{
+	element0,overlay,surface1202.png,0,0
+}
+
+//lights
+surface14
+{
+	element0,overlay,surface1203.png,0,0
+}
+
+//slimestains
+surface15
+{
+	element0,overlay,surface1204.png,0,0
+}
+
+//plush
+surface16
+{
+	element0,overlay,surface1205.png,0,0
+}
+
+sakura.surface.alias
+{
+	66,(1,2,3,4)
+}
+
+
+surface.append0-5
+{
+	collision0,0,50,230,100,head
+}
+

@@ -1,0 +1,241 @@
+﻿
+
+OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+--
+	
+			"\0%(slimenoises)????????"
+			"\0%(slimenoises)...??"
+			"\0%(slimenoises)!?"
+			"\0%(slimenoises).......?"
+}
+
+
+
+OnInstallBegin
+{
+	"%(slimenoises)!"
+}
+
+OnInstallComplete
+{
+	"\0"
+ 	--
+	if reference0 == "shell"
+ 	{	
+		"Shell installed.\w8\n\n"
+ 	}
+	elseif reference0 == "ghost"
+ 	{
+		"Ghost installed.\w8\n\n"
+ 	}
+	elseif reference0 == "balloon"
+ 	{
+		"Balloon installed.\w8\n\n"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		"Plugin installed.\w8\n\n"
+ 	}
+	--
+		"\0%(slimenoises)????????"
+		"\0%(slimenoises)...??"
+		"\0%(slimenoises)!?"
+		"\0%(slimenoises).......?"
+}
+
+OnInstallFailure
+{
+	"\0The installation failed.\n\w5"
+	--
+	if reference0 == "unsupported" 
+	{
+	"The file seems unsupported."
+	}	
+	elseif reference0 == "extraction"
+	{
+	"The file could not be extracted properly."
+	}
+	--
+	"\n\w8"
+	--
+		"\0%(slimenoises)????????"
+		"\0%(slimenoises)...??"
+		"\0%(slimenoises)!?"
+		"\0%(slimenoises).......?"
+}
+
+ 
+OnInstallRefuse
+{
+	"\0Seems like %(sname) won't install it..."
+}
+
+
+OnVanishSelected
+{
+	"\0\s[3]%(it)sad %(slimenoises)\w8\w8%(itoff)"
+}
+
+
+
+
+OnUpdateBegin
+{
+	"\0\s[0]Starting the update process.\w8\e"
+	
+	"\1\s[10]Another message for starting the update process.\w8\0\s[0]Hope you read the directions properly.\w8\e"
+}
+
+ 
+OnUpdateReady
+{
+	"slime seems to be concentrating..."
+}
+
+
+//---- OnUpdateComplete -------------------------------------------------------------
+//When the ghost has finished the update process.
+
+OnUpdateComplete
+ {
+	if reference0 == "none" //if the ghost had nothing to update with
+ 	{
+ 		"slime got distracted.\w6\nguess it didn't have a thought after all."
+	}
+ 	else //if the ghost has updated successfully
+	{
+		"slime has leveled up!\w5 (or some other variant)"
+ 	}
+}
+
+OnUpdateFailure
+{
+	 "You get the impression that "
+	 --
+	if reference0 == "timeout" //if the connection times out
+ 	{
+ 		"the connection timed out... wait\w5, what do slimes connect to?"
+	}
+ 	/*elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
+	{
+		"\1\s[10]The MD5 hash of the files don't match.\e"
+ 	}*/
+	else //for other errors
+ 	{
+ 		"there's some errors even your slime couldn't solve."
+	}
+}
+
+OnUpdate.OnDownloadBegin
+{
+ 	
+	"%(slimenoises)."
+	
+}
+
+
+OnHeadlinesenseBegin
+{
+	"%(slimenoises)"
+}
+
+OnHeadlinesense.OnFind
+{
+	//----  What page You're on
+ 	if reference2 == "First" || reference2 == "First and Last"
+	{
+ 		//---- First page
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	elseif reference2 == "Next"
+ 	{
+		//---- Second page
+ 		"\0\b2\s[0]%(reference0):"
+	}
+ 	elseif reference2 == "Last"
+	{
+ 		//---- Last page
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	--
+ 	//---- Headlines
+	"\n\n%reference3\n"
+ 	--
+	//---- Pages
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+ 		//---- Bottom buttons
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+		//---- Bottom buttons
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+
+Select.Headline_Cancel
+{
+	
+}
+
+OnHeadlinesenseComplete
+{
+}
+
+
+OnUpdatedataCreating
+ {
+	"\0The slime is supposedly creating the updates2.dau file.\n\n%(slimenoises)?"
+ }
+
+
+OnUpdatedataCreated
+{
+	"\0\s[0]Success.\n\n\w3%(slimenoises)!"
+}
+
+
+OnNarCreating
+{
+	"\0The slime is supposedly creating the .nar file.\n\n%(slimenoises)?"
+}
+
+OnNarCreated
+{
+	"\0\s[0]Success.\n\n\w3%(slimenoises)!"
+}
+
+
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+
+
+
+OnShellScaling
+{
+	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
+	{
+		"Now your slime is all grown up."
+		"Big slime."
+	}
+	elseif reference0 == 100 //this is 100%
+	{
+		
+	}
+	elseif reference0 == 50
+	{
+		"Smol slime."
+		"UwU"
+	}
+}

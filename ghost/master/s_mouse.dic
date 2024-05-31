@@ -1,0 +1,105 @@
+﻿
+OnMouseMove
+{
+  	if nowmode != "QUIZ"
+ 	{
+		if reference3 == 0
+		{
+			MouseMoveSakura
+		}
+	}
+}
+ 
+MouseMoveSakura
+{
+	if reference4 == "head" 
+ 	{
+		stroke++
+ 		if stroke >= 40
+		{
+ 			stroke = 0
+			
+			"%(pettimes)"
+ 		}
+		
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+pettimes : nonoverlap
+{
+"o//w//o"
+"u//w//u"
+"o///W///o"
+"O///w///O"
+"0//w//0"
+"Ò//w//Ó"
+"O///W///O"
+"O//w//o"
+"o//w//O"
+"Õ//w//Õ"
+"@///w///@"
+"ø//w//ø"
+"Ø//w//Ø"
+"☆///w///☆"
+"✧///w///✧"
+"♥//w//♥"
+"゜//w//゜"
+"◕//w//◕"
+"ᅌ//w//ᅌ"
+"◔//w//◔"
+"ʘ//w//ʘ"
+"⓪///w///⓪"
+"ʘ//w// ︠ʘ"
+"°//꒳//°"
+"°//ω//°"
+"◡///ω///◡"
+"´//꒳//`"
+"͡o ///꒳/// ͡o"
+"・//ω//・"
+"‐//ω//‐"
+". //w// ."
+"｀//ω//´"
+"‘//w//‘"
+
+}
+
+
+OnMouseDoubleClick
+{
+ 	if reference3 == 0
+	{
+		MouseDoubleClickSakura
+ 	}
+}
+
+MouseDoubleClickSakura
+{
+ 	if reference4 == "head"
+	{
+		"\s[5]%(poketimes)"
+ 	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+}
+
+poketimes
+{
+"%(slimenoises)"
+"Squishy."
+"Moist."
+"Mushy."
+"Bouncy."
+"Jiggly."
+"Smushy."
+"%(it)startled%(itoff) %(slimenoises)"
+"%(it)excited%(itoff) %(slimenoises)"
+"%(it)frantic%(itoff) %(slimenoises)"
+
+}
+ 

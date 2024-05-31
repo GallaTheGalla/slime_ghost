@@ -1,0 +1,18 @@
+﻿charset,UTF-8
+
+name,Slime
+type,ghost
+
+sakura.name,slime
+kero.name,
+
+craftman,Change & Galla
+craftmanw,Change & Galla
+craftmanurl,https://gallathegalla.github.io/gtg-ghosts/
+
+
+sstp.allowunspecifiedsend,0
+shiori,aya5.dll
+
+
+icon,smolslime.ico

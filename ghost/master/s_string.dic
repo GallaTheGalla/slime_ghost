@@ -1,0 +1,215 @@
+﻿
+
+On_username
+{
+	username
+}
+
+//---- Network Update URL ----------------------------------------------
+//This is the URL where your ghost will look for updates. If you're setting up Network Updates YOU MUST change this to point at the right directory! Otherwise your ghost will not update properly! If you're not going to use the Network Update feature, just leave this section as it is or delete it, it should be fine.
+
+On_homeurl
+{
+	"https://raw.githubusercontent.com/GallaTheGalla/slime/main/"
+}
+
+On_recommendrootbutton.caption
+ {
+	"Web: References"
+}
+
+
+On_sakura.recommendsites
+ {
+	"Ghost Template Walkthrough"
+	--
+	"%ASC(1)http://www.ashido.com/ukagaka/walkthrough.html%ASC(2)"
+	--
+	"Zarla's LJ"
+	--
+	"%ASC(1)http://zarla.livejournal.com/%ASC(2)"
+	--
+	
+	"Zarla's Tumblr"
+	--
+	"%ASC(1)http://zarla-s.tumblr.com/%ASC(2)"
+	--
+	
+	"Zarla's Dreamwidth"
+	--
+	"%ASC(1)http://zarla.dreamwidth.org/%ASC(2)"
+	--
+	
+	"SSP"
+	--
+	"%ASC(1)http://ssp.shillest.net/%ASC(2)"
+	--
+	
+	"Crow + SSP Reference (J)"
+	--
+	"%ASC(1)http://crow.aqrs.jp/reference/all/index.html%ASC(2)"
+	--
+	
+	"Ghost Documentation (J)"
+	--
+	"%ASC(1)http://usada.sakura.vg/contents/specification.html%ASC(2)"
+	--
+	
+	"Disc-2 (J)"
+	--
+	"%ASC(1)http://disc2.s56.xrea.com/%ASC(2)"
+ }
+ 
+//---- The second option from the top's caption -----------------------------------------
+//This is the name of the second option in that list. You can change this to whatever you want, or even put in multiple names. If you do more than one, the names will switch randomly.
+
+On_portalrootbutton.caption
+{
+	"Web: Dev Tumblrs"
+}
+
+On_sakura.portalsites
+{
+	"Galla."
+	--
+	"%ASC(1)https://66.media.tumblr.com/avatar_2bca6c86989c_128.pnj%ASC(2)"
+	--
+	"Change."
+	--
+	"%ASC(1)http://changeside.tumblr.com%ASC(2)"
+}
+
+On_kero.recommendbuttoncaption
+ {
+	"bloop"
+ }
+
+
+On_kero.recommendsites
+{
+}
+
+ //---- Update Menu Caption ------------------------------------------------------------
+ //What it will say on the menu for the option to Update.
+ 
+On_updatebutton.caption
+{
+	"Level UP(date)"
+}
+
+
+On_dressuprootbutton.caption
+{
+	"Make a fancy"
+}
+
+
+On_headlinesenserootbutton.caption
+{
+	"RSS/Headlines"
+}
+
+
+On_readmebutton.caption
+{
+	"rewd me ÒAÓ"
+}
+
+
+On_vanishbutton.caption
+{
+	"Uninstall"
+}
+
+
+On_shellrootbutton.caption
+ {
+	"Choose slime looks"
+}
+
+
+On_ghostrootbutton.caption
+{
+	"Change Ghost"
+}
+
+
+On_callghostrootbutton.caption
+ {
+	"Call Ghost"
+}
+
+
+On_quitbutton.caption
+{
+	"Quit"
+}
+
+
+
+ //---- 소멸 지시 버튼 표시 교체 -------------------------------------------------------
+On_vanishbutton.visible
+ {
+ 	if deleteshitai == "ON"
+ 	{
+	"1"
+	}
+	else
+	{
+	"0"
+	}
+}
+
+//---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
+On_otherghostname
+{
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+
+//---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+
+On_craftman
+{
+	"umeici"
+}
+
+On_craftmanw
+{
+	"?럖"
+}
+
+On_name
+{
+	"AYA"
+}
+
+//---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+
+//---- hwnd 롦벦 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}
+

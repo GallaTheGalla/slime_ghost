@@ -1,0 +1,292 @@
+﻿AiTalk
+{
+	"\0\s[66]"
+	--
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if name != "" && RAND(100) <= 20 {
+					lastTalk = NameTalk
+				}
+			elseif pillow != 0 && RAND(100) <= 10 {
+				lastTalk = pillowtalk
+				}
+			elseif plant != 0 && RAND(100) <= 10 {
+				lastTalk = planttalk
+				}
+			elseif blanket != 0 && RAND(100) <= 10 {
+				lastTalk = blankettalk
+				}
+			elseif lights != 0 && RAND(100) <= 10 {
+				lastTalk = lightstalk
+			}
+			elseif slimestains != 0 && RAND(100) <= 10 {
+				lastTalk = slimestainstalk
+			}
+			elseif plush != 0 && RAND(100) <= 10 {
+				lastTalk = plushtalk
+			}
+			else {lastTalk = RandomTalk}
+			--
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+}
+
+pillowtalk : nonoverlap
+{
+	"Slime soft.\w8\nPillow soft.\w8\nBut which??\w2 Most soft??"
+	"The pillow is covered in slime."
+	"Pillow...\w2 looks comfortable...\w2 and wet..."
+	"This pillow is definitely not just a bag filled with slime."
+	"Slime care necessities:\w7\nA pillow.\w7\nA washable pillow cover."
+}
+
+planttalk : nonoverlap
+{
+	"Water plants with water.\w8\nNot slime."
+	"The plant’s leaves are suspiciously nibbled."
+	"Slime care necessities:\w7\nA plant friend.\w7\nA non-tippable plant friend container."
+	"The plant’s pot is labeled\w4 ‘For slime enjoyment only’."
+	"You decide to check on the plant.\w6\n...\w7\nIts leaves are covered in slime..."
+}
+
+blankettalk : nonoverlap
+{
+	"On second thought\w6, the blanket might actually be a towel...?"
+	"Seeing the blanket\w5, you can't help but wonder...\w4 do slimes even get cold?"
+	"Slime care necessities:\w7\nA snuggle containment blanket.\w7\nA lot of laundry detergent."
+	"The blanket's tag says\w4 'Not recommended for non-slime use'."
+	"The blanket looks chewed on."
+}
+
+lightstalk : nonoverlap
+{
+	"Slime care necessities:\w7\nA nightlight.\w7\nConstant vigilance."
+	"Feels like faeries are about."
+	"All these little lights make the slime glisten."
+	"Your slime looks like it %(it)really%(itoff) wants to eat those lights..."
+	"Ambient lighting...\w5 Ambient squishing...\w8\nThe mood is set for... something...?"
+}
+
+slimestainstalk : nonoverlap
+{
+	"Legends say there used to be %(itisfood) here...\w6 but all that's left is this stain..."
+	"Legends say there used to be %(isitfood) here...\w6 but all that's left is this stain..."
+	"You wonder if you should clean up around here..."
+	"The slime seems happy in this filth."
+	"Slime care necessities:\w7\nThere will be stains.\w7\nGet used to it."
+}
+
+plushtalk : nonoverlap
+{
+	"The slime toy emits its own protective mucus layer."
+	"That tiny slime looks oddly familiar..."
+	"Slime care necessities:\w7\nEngaging toys.\w7\nAmple playtime."
+	"Here\w4, we see the wild slime caring for its young.\w8\nTaking the gentlest of care as the newborn is carried-\w6\nWait.\w7\w8No.\n\w8The plush is getting chewed on."
+	"The slime plush doubles as a bouncy ball."
+}
+
+
+NameTalk : nonoverlap
+{
+"You wonder what %(name) is thinking about… \n…… \n%(slimenoises)"
+"You wonder if %(name) wants %(itisfood)."
+"You wonder if %(name) wants %(isitfood)."
+"You notice %(itisfood) is missing and look suspiciously at %(name). \n… %(name) looks content."
+"You notice %(isitfood) missing and look suspiciously at %(name). \n… %(name) looks content."
+"You notice %(itisfood) missing and look suspiciously at %(name). \n… %(name) looks happy."
+"You notice %(isitfood) missing and look suspiciously at %(name). \n… %(name) looks happy."
+"You notice %(itisfood) missing and look suspiciously at %(name). \n… %(name) looks… full."
+"You notice %(isitfood) missing\w8 and look suspiciously at %(name).\w8\n…\w8\w8 %(name) looks\w8… full."
+"%(name) spits up %(isitfood)\w5, then carries on like nothing ever happened."
+"%(name) spits up %(itisfood)...\w5 then looks ready to eat it again..."
+"%(name) is bouncing happily."
+"%(name) is jiggling happily."
+"%(name) is wiggling happily."
+"%(name) is oozing contented slime."
+"%(name) is oozing confused slime."
+
+}
+
+RandomTalk : nonoverlap
+{
+"owo"
+"uwu"
+"o W o"
+"O w O"
+"0w0"
+"ÒwÓ"
+"O W O"
+"Owo"
+"owO"
+"ÕwÕ"
+"@w@"
+"øwø"
+"ØwØ"
+"☆ w ☆"
+"✧ w ✧"
+"♥w♥"
+"゜w゜"
+"◕w◕"
+"ᅌwᅌ"
+"◔w◔"
+"ʘwʘ"
+"⓪w⓪"
+"ʘw ︠ʘ"
+"°꒳°"
+"°ω°"
+"◡ ω ◡"
+"´꒳`"
+"͡o ꒳ ͡o"
+"・ω・"
+"‐ω‐"
+". w ."
+"｀ω´"
+"‘ w ‘"
+"%(slimenoises)"
+"...\w8%(slimenoises)"
+"...\w8\n......\w8\n%(slimenoises)"
+"%(slimenoises)!!!"
+"%(slimenoises)?"
+"%(slimenoises)? %(slimenoises)!"
+"%(slimenoises)-%(slimenoises)."
+"%(slimenoises)...\w8 %(slimenoises)?"
+"%(slimenoises)...\w8 %(slimenoises)!"
+"%(slimenoises)...?"
+"%(slimenoises)...!"
+"%(slimenoises)!?"
+"%(slimenoises)~"
+"...\w6 %(slimenoises)?"
+"...\w6 %(slimenoises)!"
+"Ahh...\w8 peaceful...\w8\n\n\n%(slimenoises)"
+"iT’s 3 O’cLoCk\w2 %(slimenoises)"
+"You catch your slime eating %(itisfood)."
+"You catch your slime eating %(isitfood)."
+"Sigh.\w5 Eating %(itisfood) again."
+"Sigh.\w8 Eating %(isitfood) again."
+"\![raise,OnNameGive]"
+}
+
+OnNameGive
+{
+if name == "" {
+"Wanna name the slime?"
+"You wonder if your slime has a name...\w8\nMaybe you should give it one?"
+"\b2You can’t keep calling the slime the slime!\w7 The slime needs a name\w4, or else you’ll go mad!\w8\nNAME IT!?"
+"The Royal Highness\w4, Slimington The Third\w4, requires a name to go in the history books."
+"\b2You wonder if the slime already has a name...\w8 Do slimes have parents to name them?\w7 How are slimes even born?\w7 Do they come from eggs?\w6\nAre there nameless slime eggs?\w6\nAre you going to name your nameless orphan slime?"
+"Studies show that slimes with names are easier to teach tricks.\w8\w3 Start the road to success?"
+"\b2You ask the slime if there’s a name you can use other than ‘slime’.\w8 You don’t get an answer\w5, but you think if you focus really hard you can develop mind reading abilities.\w8 Try?"
+--
+"\n\n\![*]\q[Yes,OnName]\n\![*]\q[No,Cancel]"
+	}
+	else {
+	AiTalk
+	}
+}
+
+
+OnMinuteChange
+{
+	if mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+}
+
+OnSecondChange
+{
+	if passsec == 60
+ 		{
+	 	passsec = 0
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+--
+	OnBCheck
+--
+	if "balloon" _in_ ballooncheck || "talking" _in_ ballooncheck { }
+	elseif passsec == 30
+	{
+		"\0\s[66]"
+	}
+	--
+	if reference2 == 1 //overlapping chars
+	{
+	}
+}
+
+MikireTalk
+{
+	
+}
+
+EndMikireTalk
+{
+	
+}
+
+
+
+
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
+
+
+
+OnBCheck
+{
+	ballooncheck = ""
+	if ASEARCH("Status",var.req.key) != -1
+	{
+		ballooncheck = var.req.value[ASEARCH("Status",var.req.key)]
+	}
+}
+
+
+
+OnName
+{
+	"\![open,inputbox,OnNameTeach,-1]"
+}
+
+OnNameTeach
+{
+	if name == "" {"The slime is now officially called "}
+	else {"Renamed to "}
+	--
+	name = reference0
+	--
+	"%(name)."
+}

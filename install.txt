@@ -1,0 +1,7 @@
+﻿charset,UTF-8
+type,ghost
+name,Slime
+directory,slime_ghost
+
+
+balloon.directory,blopy

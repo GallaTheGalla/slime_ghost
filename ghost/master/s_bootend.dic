@@ -1,0 +1,240 @@
+﻿/*
+		displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+
+*/
+
+OnGhostCoordinates
+{
+	//currentx = "%(reference0[0])"
+	currenty = "%(reference0[1])"
+}
+
+//crtl shift f12
+
+OnFirstBoot
+{
+	OnFirstBootVariables
+	--
+	"\![get,property,OnGhostCoordinates,currentghost.scope(0).rect]"
+	--
+	OnFirst
+}
+
+OnFirst
+{
+	_y = displayheight + 10
+	--
+	"\![enter,passivemode]\![move,--Y=%(_y),--base=screen]%(slimenoises)\w8\n\n......?\x%(slimenoises) %(slimenoises)\w8\n\nWhat is that sound???\x\![move,--Y=%(currenty),--time=500,--base=screen]... %(slimenoises)?\w8\w8\nOh!\w5 A slime!\w7\nWhat are you doing here?\w8\s[3]\n%(slimenoises)!\x...\w8\s[66] Seems like the slime doesn't want to leave.\w6\nWell.\w8\nBetter get used to this.\w8\n%(slimenoises).\![leave,passivemode]"
+
+}
+
+OnFirstBootVariables
+{
+	lastTalk = ""
+	passmin = 0 
+	passsec = 0
+	name = ""
+	stroke           = 0
+	mikireflag       = 0
+ 	aitalkinterval = 400
+	talktime = "5 minutes"
+	deleteshitai = "OFF"
+	nowshell = "default_shell"
+	plant = 0
+	pillow = 0
+	blanket = 0
+	lights = 0
+	slimestains = 0
+	plush = 0
+	feedtimes = 0
+}
+
+
+
+//--GetTimeSlot
+
+//This is another unique function to tell what time of day it is. This is used for specialized dialogue related to the day. If you're uninterested, just ignore it. Either way, don't touch it. If you are going to use it though, make a note of the names used for each chunk of time, like earlymorning or lunch. Those are the names you'll be using later.
+
+GetTimeSlot
+{
+	if hour >= 5 && hour <= 8
+	{
+		"earlymorning"
+	}
+	elseif hour >= 9 && hour <= 11
+	{
+		"morning"
+	}
+	elseif hour >= 12 && hour <= 14
+	{
+		"lunch"
+	}
+	elseif hour >= 15 && hour <= 17
+	{
+		"afternoon"
+	}
+	elseif hour >= 18 && hour <= 20
+	{
+		"evening"
+	}
+	elseif hour >= 21 && hour <= 24
+	{
+		"latenight"
+	}
+	else
+	{
+		"midnight"
+	}
+}
+
+
+GetDaySlot
+{
+	"%(month)month %(day)day"
+}
+
+
+OnBoot
+ {
+	lastTalk = ""
+	//passmin = 0
+	//passsec = 0
+	feedtimes = 0
+	--
+	OnRestoreObjects
+	--
+ 	"\1\s[-1]\0\s[0]"
+	--
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot
+	--
+	"%(normalboottalk)"
+}
+
+
+normalboottalk
+{
+"A wild slime appears!"
+"Slime?"
+"Slime!"
+"An encounter...\w5 with a slime."
+"O W O HEWWO???"
+"A goopy friend."
+"Smells like mucus..."
+"An approaching %(slimenoises)."
+"A slime!\w8\nLooks happy to see you."
+"A slime!\w8\nSeems surprised."
+"One extra slimy slime."
+"One extra goopy goopster."
+"One extra jiggly jiggler."
+"%(slimenoises)."
+"Jiggle jiggle."
+"Slime seems to be as happy\w3 as slime can be."
+"Is this the same slime...?"
+"Definitely not a clone."
+"Back from prison."
+"We meet again."
+"Beauty.\w8\nGrace.\w8\nAn unforgettable face."
+"Who let the slimes out?"
+"Slime time."
+"Once upon a time\w5, there was a slime..."
+"The slime squishes in!"
+}
+
+
+OnClose
+{
+ timeslot = GetTimeSlot
+ --
+"Farewell\w5, sweet slime."
+"A parting %(slimenoises)."
+"Adios\w7, goop."
+"No more slime time."
+"%(itisfood) for the road."
+"%(isitfood) for the road."
+"Bye bye\w5, jiggly friend."
+"You say goodbye to your little slime buddy.\w8\n%(slimenoises)"
+"Seeing the confused look on your slime's face before slinking away\w4, you almost regret this choice.\w8\w8\cThen you remember the stains."
+"%(it)confused slime noises."
+ --
+	"\w8\w4\-\e"
+}
+
+OnWindowStateRestore
+{
+	"\1\s[-1]\0\s[66]"
+	--
+	OnRestoreObjects
+	--
+	"\0"
+}
+
+OnSurfaceRestore
+{
+	"\0\s[66]\1\s[-1]"
+	--
+	OnRestoreObjects
+	--
+	"\0"
+}
+
+OnRestoreObjects
+{
+	if pillow == 1 {"\p[1]\s[11]\![set,alignmenttodesktop,bottom]"}
+	--
+	if plant == 1 {"\p[2]\s[12]\![set,alignmenttodesktop,bottom]"}
+	--
+	if blanket == 1 {"\p[3]\s[13]\![set,alignmenttodesktop,bottom]"}
+	--
+	if lights == 1 {"\p[4]\s[14]\![set,alignmenttodesktop,top]"}
+	--
+	if slimestains == 1 {"\p[5]\s[15]\![set,alignmenttodesktop,bottom]"}
+	--
+	if plush == 1 {"\p[6]\s[16]\![set,alignmenttodesktop,bottom]"}
+}
+
+
+OnGhostChanging
+{
+	if reference0 == "Slime"
+	{
+	}
+ 	else //If you're switching to another Ghost.
+	{
+		OnClose
+	}
+}
+
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[-1]"
+	--
+	if reference0 == "Slime"
+	{
+		"\0\s[0]Reload.\e"
+	}
+	else //If you're switching to them from another ghost...
+	{
+		OnBoot
+	}
+}
+
+
+OnShellChanging
+{
+	
+}
+ 
+OnShellChanged
+{
+	
+}
+
+
+OnDressupChanged
+{
+	
+}

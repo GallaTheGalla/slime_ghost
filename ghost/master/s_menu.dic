@@ -1,0 +1,456 @@
+﻿
+OpenSakuraMenu
+{
+	
+		MenuRun
+}
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\n\n\_q\b2"
+	--
+	if lastTalk != ""
+	{
+	  "\![*]\q[Repeat,OnLastTalk]\n"
+	}
+	--
+ 	"\![*]\q[Speak,altalk]\_l[100]\![*]\q[Empty Garbage,ChoiceGarbagecan]\n"
+	--
+	"\![*]\q[Decorate,OnScene]\n"
+	--
+	"\![*]\q[Feed,OnFeed]\n"
+	--
+	"\![*]\q[Self Care Advice,OnSelfCare]\n"
+	--
+	"\![*]\q[Config Menu,OnConfig]\n"
+	--
+	"\_l[0,150]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)"
+	--
+ 	"\_l[120,165]\![*]\q[Nevermind,CANCEL]"
+}
+
+Select.altalk
+{
+	AiTalk
+}
+
+OnLastTalk 
+{
+"%(lastTalk)\e"
+}
+
+OnScene
+{
+	"\_q\b2\_l[65]Scenery\n\n"
+	--
+	if pillow == 0 {"\![*]\q[Add Pillow,OnAdd,pillowadd]\n"}
+	else {"\![*]\q[Take Pillow,OnAdd,pillowtake]\n"}
+	--
+	if plant == 0 {"\![*]\q[Add Plant,OnAdd,plantadd]\n"}
+	else {"\![*]\q[Take Plant,OnAdd,planttake]\n"}
+	--
+	if blanket == 0 {"\![*]\q[Add Blanket,OnAdd,blanketadd]\n"}
+	else {"\![*]\q[Take Blanket,OnAdd,blankettake]\n"}
+	--
+	if lights == 0 {"\![*]\q[Add Lights,OnAdd,lightsadd]\n"}
+	else {"\![*]\q[Take Lights,OnAdd,lightstake]\n"}
+	--
+	if slimestains == 0 {"\![*]\q[Add Slimestains,OnAdd,slimestainsadd]\n"}
+	else {"\![*]\q[Take Slimestains,OnAdd,slimestainstake]\n"}
+	--
+	if plush == 0 {"\![*]\q[Add Plush,OnAdd,plushadd]\n"}
+	else {"\![*]\q[Take Plush,OnAdd,plushtake]\n"}
+	--
+	"\_l[120,165]\![*]\q[Back,BACKTOMENU]"
+}
+
+OnAdd
+{
+	if reference0 == "pillowadd"
+	{
+		"Good."
+		"Soft."
+		"Ready for slime."
+		--
+		pillow = 1
+		"\p[1]\s[11]\![set,alignmenttodesktop,bottom]"
+	}
+	elseif reference0 == "pillowtake"
+	{
+		"There is no comfort here."
+		--
+		pillow = 0
+		"\p[1]\s[-1]"
+	}
+	elseif reference0 == "plantadd"
+	{
+		"Green."
+		"Fresh."
+		"Ready for slime."
+		--
+		plant = 1
+		"\p[2]\s[12]\![set,alignmenttodesktop,bottom]"
+		
+	}
+	elseif reference0 == "planttake"
+	{
+		"There is no nature here."
+		--
+		plant = 0
+		"\p[2]\s[-1]"
+	}
+	elseif reference0 == "blanketadd"
+	{
+		"Warm."
+		"Cozy."
+		"Ready for slime."
+		--
+		blanket = 1
+		"\p[3]\s[13]\![set,alignmenttodesktop,bottom]"
+	}
+	elseif reference0 == "blankettake"
+	{
+		"There is no security here."
+		--
+		blanket = 0
+		"\p[3]\s[-1]"
+	}
+	elseif reference0 == "lightsadd"
+	{
+		"Bright."
+		"Enlightening."
+		"Too high to slime."
+		--
+		lights = 1
+		"\p[4]\s[14]\![set,alignmenttodesktop,top]"
+	}
+	elseif reference0 == "lightstake"
+	{
+		"There is no light here."
+		--
+		lights = 0
+		"\p[4]\s[-1]"
+	}
+	elseif reference0 == "slimestainsadd"
+	{
+		"wait that's just making a mess"
+		"no stop"
+		"too much slime"
+		--
+		slimestains = 1
+		"\p[5]\s[15]\![set,alignmenttodesktop,bottom]"
+	}
+	elseif reference0 == "slimestainstake"
+	{
+		"That's called cleaning."
+		--
+		slimestains = 0
+		"\p[5]\s[-1]"
+	}
+	elseif reference0 == "plushadd"
+	{
+		"Friend."
+		"Snuggly."
+		"Ready for slime."
+		--
+		plush = 1
+		"\p[6]\s[16]\![set,alignmenttodesktop,bottom]"
+	}
+	elseif reference0 == "plushtake"
+	{
+		"There is no companionship here."
+		--
+		plush = 0
+		"\p[6]\s[-1]"
+	}
+	--
+	"\0\x"
+	--
+	OnScene
+}
+
+OnFeed : nonoverlap
+{
+	"\s[6]"
+	--
+"You feed the slime %(itisfood)."
+"You feed the slime %(isitfood)."
+"You throw %(itisfood)!\n\n\w8Got it!"
+"You throw %(isitfood)!\n\n\w8Got it!"
+"Oh\w5, %(itisfood)?\w8 Yum."
+"Oh\w5, %(isitfood)?\w8 Yum...?"
+"Nothing like %(itisfood)."
+"Nothing like %(isitfood)."
+"You thought you fed your slime %(itisfood)\w5, but is it actually %(isitfood)...?"
+"You thought you fed your slime %(isitfood)\w5, but is it actually %(itisfood)...?"
+"You thought you fed your slime %(itisfood)\w5, but is it actually %(itisfood)...?"
+"You thought you fed your slime %(isitfood)\w5, but is it actually %(isitfood)...?"
+"You ask the slime what it wants to eat.\n\w8... %(slimenoises)\n\w8... You give it %(itisfood)."
+"You ask the slime what it wants to eat.\n\w8... %(slimenoises)\n\w8... You give it %(isitfood)."
+"Only the best slimes get %(itisfood) to eat!"
+"Only the best slimes get %(isitfood) to eat!"
+"Naughty slimes get %(itisfood) for dinner."
+"Naughty slimes get %(isitfood) for dinner."
+"Does %(slimenoises) mean %(itisfood)?\w8\n Because that's what we're eating."
+"Does %(slimenoises) mean %(isitfood)?\w8\n Because that's what we're eating."
+"Fact: %(itisfood)?\w7\nTastier when stolen."
+"Fact: %(isitfood)?\w7\nTastier when stolen."
+"Delicious\w3, %(itisfood)."
+"Delicious\w3, %(isitfood)."
+--
+"\x"
+--
+feedtimes++
+--
+MenuRun
+}
+
+OnSelfCare : nonoverlap
+{
+"Feeling sad?\w8\nEat %(itisfood)!"
+"Feeling sad?\w8\nEat %(isitfood)!"
+"Feeling angry?\w8\nEat %(itisfood)!"
+"Feeling angry?\w8\nEat %(isitfood)!"
+"Feeling stressed?\w8\nEat %(itisfood)!"
+"Feeling stressed?\w8\nEat %(isitfood)!"
+"Run a bath.\w8\w4\nFill it with jello.\w8\w4\nBecome the jello."
+"Treat yourself.\w8 Put %(itisfood) in jello to enjoy at your leisure."
+"Treat yourself.\w8 Put %(isitfood) in jello to enjoy at your leisure."
+"Take a breath...\w8\w8 Inhale...\w8\w8 Exhale...\w8\w8\w4\nNow look at pictures of slimes."
+"Bouncing calms the nerves."
+"Jiggling calms the nerves."
+"Wiggling calms the nerves."
+"Get rid of clutter.\w6 Make room for slimes."
+"Go slime-watching."
+"Put down your phone.\w8 It isn’t slime proof.\w5 You’ll ruin it."
+"Stand up.\w7 Sit down.\w8\nStand up.\w7 Sit down.\w8\nStand up.\w7 Sit down.\w8\nStand up.\w7\nSlimes don’t have legs."
+"Have a healthy snack.\w6\nLike %(itisfood)."
+"Have a healthy snack.\w6\nLike %(isitfood)."
+"Moisturise your membranes."
+"Check your skin.\w8\w8 Is it wet?\w8\nMake it wetter."
+"Take a short nap.\w8 Three days should do it."
+"Slime is friend.\w7 Be happy."
+"Start a fire."
+"Find an animal.\w8 Keep it."
+"Slime good.\w8 Slime smart.\w7\n...\w8\nYou're okay, too."
+"Sit in the shower.\w8\w3 Never leave."
+"Exist with the goop."
+"Embrace the slime."
+"Say it together now...\w8\n...\w5%(slimenoises)"
+--
+"\x\c"
+--
+MenuRun
+}
+
+
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sunday"}
+	elseif weekday == 1
+	{"Monday"}
+	elseif weekday == 2
+	{"Tuesday"}
+	elseif weekday == 3
+	{"Wednesday"}
+	elseif weekday == 4
+	{"Thursday"}
+	elseif weekday == 5
+	{"Friday"}
+	else
+	{"Saturday"}
+}
+
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+ 		{
+ 			"AM"
+ 		}
+ 	else
+ 		{
+ 			"PM"
+ 		}
+}
+
+Getnowmin
+{
+	if minute >= 0 && minute <=9
+		{
+			"0%(minute)"
+		}
+	else
+		{
+			"%(minute)"
+		}
+}
+
+Getnowhour
+{
+	if hour12 >= 0 && hour12 <=9
+		{
+			"0%(hour12)"
+		}
+	else
+		{
+			"%(hour12)"
+		}
+}
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+
+OnConfig
+{
+	"\0\b[2]\_q\n" 
+	--
+	if name != "" {"Slime Name: %(it)%(name)%(itoff) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"}
+	else {"\n"}
+	--
+	"Talk Rate:\n %(it)- every %(talktime)%(itoff) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	--		
+	"Enable Uninstall?"
+	--
+	if deleteshitai == "OFF" {"%(grey)\n\q[On,deleteon] %(light)\q[Off,deleteoff]%(coff)"}
+	else {"%(light)\n\q[On,deleteon] %(grey)\q[Off,deleteoff]%(coff)"}
+	--
+	"\_l[120,165]\![*]\q[Back,BACKTOMENU]"
+}
+
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	OnConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	OnConfig
+}
+
+Select.talkinter
+ 	{
+ 		"\0\s[0]\b2The Slime looks attentive.%(talktime)./
+ 		\0\n\n[half]/
+ 		\![*]\q[Every 30 seconds,TALKMAX]\n/
+		\![*]\q[Every minute,TALKHIGH]\n/
+ 		\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+		\![*]\q[Every 5 minutes,TALKPOOR]\n/
+ 		\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+		\![*]\q[Don't change,TalksTill]\e"
+	}
+
+Select.TalksTill
+{
+		"\0%(slimenoises).\e"
+}
+
+
+Select.TALKMAX
+{
+ 		talktime = "30 seconds"
+		aitalkinterval = 45
+		
+ 		"\0Indulge in %(slimenoises) every 30 seconds.\e"
+}
+
+//If the user chooses every minute.
+Select.TALKHIGH
+{
+ 		talktime = "1 minute"
+		aitalkinterval = 90
+		
+ 		"\0Enjoy %(sname)'s beautiful non existing voice every minute.\e"
+}
+
+//If the user chooses every three minutes.
+Select.TALKNORMAL
+{
+ 		talktime = "3 minutes"
+		aitalkinterval = 270
+		
+ 		"\0Every 3 minutes.\n\n\w8%(slimenoises).\e"
+}
+
+
+Select.TALKPOOR
+{
+ 		talktime = "5 minutes"
+		aitalkinterval = 400
+		
+ 		"\0Every five minutes it is.\w8\n\nIs %(sslime) even capable of it?\e"
+}
+
+Select.TALKNONE
+{
+ 		talktime = "ÙwÚ"
+		aitalkinterval = 0
+		
+		"\0\s[0]\i[1]%(sname) won't make a noise...\w8\n\nProbably.\e"
+}
+
+Select.TEACHNAME
+{
+	OnName
+}
+
+	
+Select.CANCEL : nonoverlap
+{
+		"%(slimenoises)"
+	--
+	"!"
+	"..."
+	"?"
+}
+
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"You point to your trash bin.\w6\nThe slime takes a look.\n\w8...\w8...\w8...\w8\cThere's nothing there.\n\w8%(it)disappointed%(itoff) %(slimenoises)"
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"You point to your trash bin.\w6\nThe slime takes a look.\n\w8...\w8...\w8... \n...!\w8\c Snack time! \![raise,OnGarbagecanEmpty]\n%(slimenoises)%(slimenoises)"
+		
+		"You point to your trash bin.\w6\nThe slime takes a look.\n\w8...\w8...\w8... \n...!\w8\cGarbage treasure! \![raise,OnGarbagecanEmpty]\n%(slimenoises)%(slimenoises)"
+
+		"You point to your trash bin.\w6\nThe slime takes a look.\n\w8...\w8...\w8... \n...!\w8\cFilthy riches! \![raise,OnGarbagecanEmpty]\n%(slimenoises)%(slimenoises)"
+
+	}
+}
+
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+
+OnChoiceTimeout : nonoverlap
+{
+	"%(slimenoises)"
+	--
+	"!"
+	"..."
+	"?"
+}
+
+

@@ -1,0 +1,230 @@
+﻿
+//formatting-----
+it
+{
+	"\f[italic,1]"
+}
+itoff
+{
+	"\f[italic,0]"
+}
+
+light
+{
+	"\f[color,20,0,200]"
+}
+grey
+{
+	"\f[color,60,50,100]"
+}
+
+coff
+{
+	"\f[color,default]"
+}
+
+sname
+{
+	if name != "" {"%(name)"}
+	else {"Slime"}
+}
+
+//envelopes
+
+
+itisfood : nonoverlap
+{
+"jello"
+"a banana"
+"a bunch of bananas"
+"cheese"
+"pudding"
+"a lot of pudding"
+"a sandwich"
+"two sandwiches"
+"ice cream"
+"an entire tub of ice cream"
+"lunch meat"
+"a single grape"
+"a bag of oranges"
+"a lovingly peeled orange"
+"a plate of spaghetti"
+"a bowl of soup"
+"biscuits"
+"cookies"
+"some cake"
+"a cherry tomato"
+"a peach"
+"almonds"
+"a slice of watermelon"
+"melon balls"
+"a pickle"
+"a green apple"
+"a red apple"
+"a golden apple"
+"canned peaches"
+"sardines"
+"pizza"
+"fries"
+"gummy bears"
+"raisin bread"
+"strawberry pop-tarts"
+"cherry pop-tarts"
+"brown sugar cinnamon pop-tarts"
+"maple syrup"
+"potato chips"
+"chocolate cereal"
+"fruity cereal"
+"whole wheat cereal"
+"mac n cheese"
+"last week's leftovers"
+"a casserole"
+"a roast"
+"a salad"
+"honey"
+"potato salad"
+"pasta salad"
+"peanuts"
+"sunflower seeds"
+"beans"
+"tofu steaks"
+"roasted eggplant"
+"fried squid"
+"phat thai"
+"suki"
+"hernekeitto"
+"sattu"
+"papaya"
+}
+
+
+
+isitfood : nonoverlap
+{
+"tissues"
+"a bag of dirt"
+"someone's phone"
+"an old shoe"
+"every canned food in the cabinet mixed together into a horrible stew"
+"an entire sack of potatoes"
+"tulips"
+"a stick"
+"plastic bags"
+"something stinky"
+"something gooey"
+"something runny"
+"something bubbling"
+"tea bags"
+"the curtains"
+"the rug"
+"dog food"
+"cat food"
+"fish food"
+"rabbit food"
+"bird food"
+"the trash"
+"the recycling"
+"the compost"
+"tax returns"
+"lamp shades"
+"that one pen you lost"
+"the wifi"
+"poison oak"
+"the murder weapon"
+"your left sock"
+"pocket lint"
+"dust bunnies"
+"pockets"
+"stickers"
+"chopsticks"
+"tin cans"
+"a pool noodle"
+"the house keys"
+"an empty bottle"
+"a flashlight"
+"a torch"
+"a giant anime sword"
+"a cardboard robot costume"
+"mittens"
+"a shit"
+"old eggshells"
+"a pleather vest"
+"ghost residue"
+"a vintage 90s collectible beanie baby"
+"attic dust"
+"a tiny toy car"
+"parchment paper"
+
+}
+
+slimenoises : nonoverlap
+{
+	"%(it)"
+	--
+"blurp"
+"gurgle"
+"slorp"
+"blup"
+"bloop"
+"shlick"
+"blep"
+"pwap"
+"slup"
+"grumgle"
+"blort"
+"glurmgle"
+"sloop"
+"plup"
+"plick"
+"ploop"
+"glip glop"
+"plip plop"
+"blip blop"
+"shmort"
+"bwap"
+"bwop"
+"dloop"
+"dwop"
+"slurmgle"
+"blurble"
+"slime"
+"dlorp"
+"shmorp"
+"blop"
+"dlop"
+"slop"
+"glop"
+"\s[0]\i[1]bitch"
+"squoosh"
+"squish"
+"squash"
+"bloosh"
+"shwomp"
+"blorp"
+"plorp"
+"pwoosh"
+"gworsh"
+"sloosh"
+"plurmble"
+"prrt"
+"slrrt"
+"brrt"
+"frrt"
+"flup"
+"flop"
+"floosh"
+"fwish"
+"florp"
+"flump"
+"furmble"
+"flumple"
+--
+"%(itoff)"
+}
+
+
+
+ On_\person
+{
+ 	person
+}

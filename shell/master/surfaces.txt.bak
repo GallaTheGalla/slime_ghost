@@ -1,0 +1,141 @@
+
+surface0
+{
+1interval,never
+1pattern0,1100,0,overlayfast,0,0
+}
+
+//idle bounce
+surface1
+{
+element0,replace,surface0.png,0,0
+
+0interval,always
+0pattern0,1000,50,replace,0,0
+0pattern1,0,50,replace,0,0
+}
+
+//idle lean
+surface2
+{
+element0,replace,surface0.png,0,0
+
+0interval,always
+0pattern0,1001,50,replace,0,0
+0pattern1,0,50,replace,0,0
+0pattern2,1002,50,replace,0,0
+0pattern3,0,50,replace,0,0
+}
+
+//idle bounce closed eyes
+surface3
+{
+element0,replace,surface1003.png,0,0
+
+0interval,always
+0pattern0,1004,50,replace,0,0
+0pattern1,1003,50,replace,0,0
+}
+
+//idle lean closed eyes
+surface4
+{
+element0,replace,surface1003.png,0,0
+
+0interval,always
+0pattern0,1005,50,replace,0,0
+0pattern1,1003,50,replace,0,0
+0pattern2,1006,50,replace,0,0
+0pattern3,1003,50,replace,0,0
+}
+
+//boop
+surface5
+{
+element0,replace,surface0.png,0,0
+
+0interval,runonce
+0pattern0,1007,50,replace,0,0
+0pattern1,1008,70,replace,0,0
+0pattern2,1009,50,replace,0,0
+0pattern3,0,55,replace,0,0
+}
+
+//gobble
+surface6
+{
+	element0,replace,surface0.png,0,0
+	
+0interval,runonce
+0pattern0,1010,50,replace,0,0
+0pattern1,1011,20,replace,0,0
+0pattern2,1012,30,replace,0,0
+0pattern3,1013,20,replace,0,0
+0pattern4,1014,30,replace,0,0
+0pattern5,1015,25,replace,0,0
+0pattern6,1014,25,replace,0,0
+0pattern7,1015,25,replace,0,0
+0pattern8,1014,25,replace,0,0
+0pattern9,-1,25,replace,0,0
+
+}
+
+
+
+
+
+
+surface10
+{
+
+element0,overlay,surface10.png,0,0
+
+}
+
+//pillow
+surface11
+{
+	element0,overlay,surface1200.png,0,0
+}
+
+//plant
+surface12
+{
+	element0,overlay,surface1201.png,0,0
+}
+
+//blanket
+surface13
+{
+	element0,overlay,surface1202.png,0,0
+}
+
+//lights
+surface14
+{
+	element0,overlay,surface1203.png,0,0
+}
+
+//slimestains
+surface15
+{
+	element0,overlay,surface1204.png,0,0
+}
+
+//plush
+surface16
+{
+	element0,overlay,surface1205.png,0,0
+}
+
+sakura.surface.alias
+{
+	66,[1,2,3,4]
+}
+
+
+surface.append0-5
+{
+	collision0,0,50,230,100,head
+}
+
