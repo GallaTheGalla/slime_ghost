@@ -6,8 +6,8 @@ type,ghost
 sakura.name,slime
 kero.name,
 
-craftman,Change & Galla
-craftmanw,Change & Galla
+craftman,Galla & Change
+craftmanw,Galla & Change
 craftmanurl,https://gallathegalla.github.io/gtg-ghosts/
 
 
